@@ -1,6 +1,6 @@
 # Spindown Dice Calculator - The Binding of Isaac: Repentace
 
-Public repository for the Spindown Dice calculator webapp available [here](spindowndicecalculator.web.app).
+Public repository for the Spindown Dice calculator webapp available [here](https://spindowndicecalculator.web.app).
 
 **IMPORTANT**: searching for Dad's Note in the second panel will show the generable items, but of course that's not correct. For now it will remain like this for debugging purposes, but I'll fix it as soon as possible.
 
