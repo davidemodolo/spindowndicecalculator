@@ -775,8 +775,12 @@ function calculateItemFromTo() {
     return;
   }
   var dn = fromID.id - DADSNOTE_ID;
-  if (fromID.id >= DADSNOTE_ID && toID.id <= DADSNOTE_ID && (!carBattery || dn % 2 == 0)) {
-    if(carBattery && dn % 2 == 0){
+  if (
+    fromID.id >= DADSNOTE_ID &&
+    toID.id <= DADSNOTE_ID &&
+    (!carBattery || dn % 2 == 0)
+  ) {
+    if (carBattery && dn % 2 == 0) {
       dn = dn / 2;
     }
     resultDiv.innerHTML = `<p class="error">Dad\'s Note is on the way after ${dn} spins </p>`;
@@ -802,8 +806,7 @@ function calculateItemFromTo() {
     cardBatteryNewDiv.appendChild(cardBatteryNewImage);
     resultDiv.appendChild(cardBatteryNewDiv);
     return;
-  }
-  else if (carBattery && steps % 2 == 0) {
+  } else if (carBattery && steps % 2 == 0) {
     steps = steps / 2;
   }
   const result = document.createElement("div");
@@ -853,9 +856,10 @@ function clearPage() {
 function displaySuggestions(input, suggestionsDivId, inputId) {
   const suggestionsDiv = document.getElementById(suggestionsDivId);
   suggestionsDiv.innerHTML = "";
+  var selectedIndex = -1;
 
   const filteredItems = filterItems(input);
-  filteredItems.forEach((item) => {
+  filteredItems.forEach((item, index) => {
     const suggestion = document.createElement("div");
     suggestion.textContent = item.suggestion;
     suggestion.classList.add("suggestion");
@@ -869,8 +873,35 @@ function displaySuggestions(input, suggestionsDivId, inputId) {
       }
       suggestionsDiv.innerHTML = "";
     });
+
     suggestionsDiv.appendChild(suggestion);
   });
+
+  // Aggiungere la gestione delle frecce direzionali e dell'invio
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowUp" && selectedIndex > 0) {
+      selectedIndex--;
+      updateSelection();
+    } else if (
+      e.key === "ArrowDown" &&
+      selectedIndex < filteredItems.length - 1
+    ) {
+      selectedIndex++;
+      updateSelection();
+    } else if (e.key === "Enter" && selectedIndex !== -1) {
+      document.getElementById(inputId).value =
+        filteredItems[selectedIndex].suggestion;
+      suggestionsDiv.innerHTML = "";
+      selectedIndex = -1;
+    }
+  });
+
+  function updateSelection() {
+    const suggestionItems = suggestionsDiv.querySelectorAll(".suggestion");
+    suggestionItems.forEach((item, index) => {
+      item.classList.toggle("selected", index === selectedIndex);
+    });
+  }
 }
 
 function switchLabels() {
@@ -1001,7 +1032,7 @@ function calculateItem(suggestion = undefined) {
 
     endI =
       717 - selectedItem.id > sliderValue ? sliderValue : 717 - selectedItem.id;
-      endI = carBattery ? endI * 2 : endI;
+    endI = carBattery ? endI * 2 : endI;
     for (let i = 1; i <= endI; i++) {
       if (carBattery && i % 2 == 1) {
         continue;
