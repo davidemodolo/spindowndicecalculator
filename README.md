@@ -40,8 +40,15 @@ Practical examples:
   
 - I want **Placebo**, and I have three items in front of me in-game: I set the slider to 100, enter Placebo in the first search field, and using the second search field, I start looking for the items I have in-game. Of course, if there's only one item in-game, it's faster to use the functionality of the first "panel," but with more items in front of you in-game, it might be more convenient to use this second functionality. In any case, the more options, the better; no one forces you to use anything.
 
+## Credits
+Special thanks to:
+
+ - [Michele Biena](https://github.com/MicheleBiena) aka TrainerFromHoenn on [Twitch](https://www.twitch.tv/trainerfromhoenn)
+
 ## TODO
-- [ ] Add the "Enter to search" functionality
-- [ ] Finally, fix the Dad's Note item generation in the second panel
+
 - [ ] Add different languages
 - [ ] Change slider style
+- [ ] Make the "Scroll up" button prettier
+- [ ] Finally, fix the Dad's Note item generation in the second panel
+- [x] Add the "Enter to search" functionality

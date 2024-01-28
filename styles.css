@@ -37,7 +37,7 @@ body {
   background-color: #3d3d3d;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .center {
   display: flex;
@@ -150,18 +150,6 @@ button:hover {
   /*animation: flash 2s ease-in-out;*/
 }
 
-@keyframes flash {
-  0%,
-  50%,
-  100% {
-    opacity: 1;
-  }
-  25%,
-  75% {
-    opacity: 0;
-  }
-}
-
 .error {
   /*all the text should have a red underline*/
   text-decoration: underline red;
@@ -180,13 +168,6 @@ button:hover {
 
 h2 {
   text-align: center;
-}
-
-#open_preferences_center {
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .up-button {
