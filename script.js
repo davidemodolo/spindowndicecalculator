@@ -859,7 +859,7 @@ function displaySuggestions(input, suggestionsDivId, inputId) {
   var selectedIndex = -1;
 
   const filteredItems = filterItems(input);
-  filteredItems.forEach((item, index) => {
+  filteredItems.forEach((item) => {
     const suggestion = document.createElement("div");
     suggestion.textContent = item.suggestion;
     suggestion.classList.add("suggestion");
@@ -876,6 +876,20 @@ function displaySuggestions(input, suggestionsDivId, inputId) {
 
     suggestionsDiv.appendChild(suggestion);
   });
+  const isHover = (e) => e.parentElement.querySelector(":hover") === e;
+  const myDiv = document.getElementById("mydiv");
+  document.addEventListener("mousemove", function checkHover() {
+    const suggestionItems = suggestionsDiv.querySelectorAll(".suggestion");
+    if (suggestionItems.length === 0) return;
+    for (let i = 0; i < suggestionItems.length; i++) {
+      const hovered = isHover(suggestionItems[i]);
+      if (hovered) {
+        selectedIndex = i;
+        updateSelection();
+        break;
+      }
+    }
+  });
 
   // Aggiungere la gestione delle frecce direzionali e dell'invio
   document.addEventListener("keydown", function (e) {
@@ -891,6 +905,9 @@ function displaySuggestions(input, suggestionsDivId, inputId) {
     } else if (e.key === "Enter" && selectedIndex !== -1) {
       document.getElementById(inputId).value =
         filteredItems[selectedIndex].suggestion;
+      suggestionsDiv.innerHTML = "";
+      selectedIndex = -1;
+    } else if (e.key === "Escape") {
       suggestionsDiv.innerHTML = "";
       selectedIndex = -1;
     }
