@@ -31,9 +31,9 @@
       <div id="suggestionsFrom"></div>
       <input type="text" id="toInput" placeholder="To" />
       <div id="suggestionsTo"></div>
-      <button class="calculate" onclick="calculateItemFromTo()">Show</button>
-      <button class="clear" onclick="clearPageFromTo()">Clear</button>
-      <button class="switchLabels" onclick="switchLabels()">Switch</button>
+      <button class="calculate" id="calculateFromTo">Show</button>
+      <button class="clear" id="clearFromTo">Clear</button>
+      <button class="switchLabels" id="switchLabels">Switch</button>
       <div id="resultFromTo"></div>
     </div>
 
@@ -42,16 +42,16 @@
         id="myRange"
         class="slider"
         type="range"
-        min="0"
+        min="1"
         max="100"
-        step="5"
+        step="1"
         value="10"
       />
       <h2 id="stringItems">Previous and following 10 items:</h2>
       <input type="text" id="itemInput" placeholder="Enter item name" />
       <div id="suggestions"></div>
-      <button class="calculate" onclick="calculateItem()">Show</button>
-      <button class="clear" onclick="clearPage()">Clear</button>
+      <button class="calculate" id = "calculateItemButton">Show</button>
+      <button class="clear" id="clear">Clear</button>
       <div id="selected"></div>
       <div id="searchResult"></div>
       <div id="searchSuggestions"></div>
@@ -80,7 +80,7 @@
         <a href="https://www.linkedin.com/in/davide-modolo/">Linkedin</a>
       </p>
     </div>
-    <button class="up-button" onclick="scrollToTop()">↑ Scroll Up ↑</button>
-    <script src="script.js"></script>
-  </body>
+    <button class="up-button" id="up-button">↑ Scroll Up ↑</button>
+      <script type="module" src="script.js"></script>
+    </body>
 </html>
