@@ -47,8 +47,6 @@ Special thanks to:
 
 ## TODO
 
-- [ ] Add different languages
 - [ ] Change slider style
 - [ ] Make the "Scroll up" button prettier
 - [ ] Finally, fix the Dad's Note item generation in the second panel
-- [x] Add the "Enter to search" functionality
